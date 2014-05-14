@@ -9,6 +9,30 @@ namespace Prj_PatronFachada
     {
         static void Main(string[] args)
         {
+            /*IAcelerador acelerador = new Acelerador();
+            IEmbrague embrague = new Embrague();
+            IPalancaCambios palancaCambios = new PalancaCambios();
+
+            acelerador.SoltarAcelerador();
+            embrague.PresionarEmbrague();
+            palancaCambios.PuntoMuerto();
+            palancaCambios.InsertarVelocidad(3);
+            embrague.SoltarEmbrague();
+            acelerador.PresionarAcelerador();*/
+
+            
+
+
+
+
+            IAcelerador acelerador = new Acelerador();
+            IEmbrague embrague = new Embrague();
+            IPalancaCambios palancaCambios = new PalancaCambios();
+
+            Centralita centralita = new Centralita(embrague, acelerador, palancaCambios);
+            centralita.AumentarMarcha();
+
+            Console.ReadLine();
             
         }
     }
