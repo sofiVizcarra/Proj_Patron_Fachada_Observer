@@ -7,6 +7,9 @@ namespace Prj_PatronFachada
 {
     interface IPalancaCambios
     {
+        void InsertarVelocidad(int velocidad);
+        void PuntoMuerto();
+        int GetVelocidadActual();
         
     }
 }
