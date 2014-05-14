@@ -7,6 +7,7 @@ namespace Prj_PatronFachada
 {
     interface IAcelerador
     {
-        
+        void PresionarAcelerador();
+        void SoltarAcelerador();
     }
 }
