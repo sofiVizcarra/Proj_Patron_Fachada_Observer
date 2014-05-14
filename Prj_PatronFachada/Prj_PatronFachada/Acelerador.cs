@@ -7,6 +7,18 @@ namespace Prj_PatronFachada
 {
     class Acelerador:IAcelerador
     {
-        
+        #region IAcelerador Members
+
+        public void PresionarAcelerador()
+        {
+            Console.WriteLine("Acelerador presionado");
+        }
+
+        public void SoltarAcelerador()
+        {
+            Console.WriteLine("Acelerador levantado");
+        }
+
+        #endregion
     }
 }
