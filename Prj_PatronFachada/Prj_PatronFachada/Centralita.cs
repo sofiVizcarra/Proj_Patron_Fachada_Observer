@@ -17,6 +17,16 @@ namespace Prj_PatronFachada
             this._acelerador = acelerador;
             this._palancaCambios = palancaCambios;
         }
+        public void AumentarMarcha()
+        {
+            _acelerador.SoltarAcelerador();
+            _embrague.PresionarEmbrague();
+            _palancaCambios.PuntoMuerto();
+            if (_palancaCambios.GetVelocidadActual() < 5)
+                _palancaCambios.InsertarVelocidad(_palancaCambios.GetVelocidadActual() + 1);
+            _embrague.SoltarEmbrague();
+            _acelerador.PresionarAcelerador();
+        }
         public void ReducirMarcha()
         {
             _acelerador.SoltarAcelerador();
