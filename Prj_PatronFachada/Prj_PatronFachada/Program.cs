@@ -20,17 +20,17 @@ namespace Prj_PatronFachada
             embrague.SoltarEmbrague();
             acelerador.PresionarAcelerador();*/
 
-            
 
 
 
 
+            IObserver observer = new Centralita();
             IAcelerador acelerador = new Acelerador();
             IEmbrague embrague = new Embrague();
             IPalancaCambios palancaCambios = new PalancaCambios();
 
             Centralita centralita = new Centralita(embrague, acelerador, palancaCambios);
-            centralita.AumentarMarcha();
+            centralita.AumentarMarcha(observer);
 
             Console.ReadLine();
             

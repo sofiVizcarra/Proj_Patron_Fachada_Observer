@@ -29,14 +29,14 @@ namespace Prj_PatronFachada
                 observer.Update(this);
             }
         }
-        
+        public Centralita() {}
         public Centralita(IEmbrague embrague, IAcelerador acelerador, IPalancaCambios palancaCambios)
         {
             this._embrague = embrague;
             this._acelerador = acelerador;
             this._palancaCambios = palancaCambios;
         }
-        public void AumentarMarcha()
+        public void AumentarMarcha(IObserver observer)
         {
             _acelerador.SoltarAcelerador();
             _embrague.PresionarEmbrague();
@@ -45,8 +45,10 @@ namespace Prj_PatronFachada
                 _palancaCambios.InsertarVelocidad(_palancaCambios.GetVelocidadActual() + 1);
             _embrague.SoltarEmbrague();
             _acelerador.PresionarAcelerador();
+            AddObserver(observer);
+            Notify();
         }
-        public void ReducirMarcha()
+        public void ReducirMarcha(IObserver observer)
         {
             _acelerador.SoltarAcelerador();
             _embrague.PresionarEmbrague();
@@ -55,6 +57,8 @@ namespace Prj_PatronFachada
                 _palancaCambios.InsertarVelocidad(_palancaCambios.GetVelocidadActual() - 1);
             _embrague.SoltarEmbrague();
             _acelerador.PresionarAcelerador();
+            AddObserver(observer);
+            Notify();
         }
     }
 }
