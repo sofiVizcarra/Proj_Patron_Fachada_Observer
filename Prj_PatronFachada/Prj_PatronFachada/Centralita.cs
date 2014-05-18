@@ -2,15 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 namespace Prj_PatronFachada
 {
-    class Centralita
+    class Centralita:IObserver
     {
         private IEmbrague _embrague;
         private IAcelerador _acelerador;
         private IPalancaCambios _palancaCambios;
 
+        private ArrayList observers = new ArrayList();
+
+        public void AddObserver(IObserver observer)
+        {
+            observers.Add(observer);
+        }
+        public void RemoveObserver(IObserver observer)
+        {
+            observers.Remove(observer);
+        }
+        public void Notify()
+        {
+            foreach (IObserver observer in observers)
+            {
+                observer.Update(this);
+            }
+        }
+        
         public Centralita(IEmbrague embrague, IAcelerador acelerador, IPalancaCambios palancaCambios)
         {
             this._embrague = embrague;

@@ -48,6 +48,7 @@
     <Compile Include="Embrague.cs" />
     <Compile Include="IAcelerador.cs" />
     <Compile Include="IEmbrague.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="IPalancaCambios.cs" />
     <Compile Include="PalancaCambios.cs" />
     <Compile Include="Program.cs" />
